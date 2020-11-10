@@ -105,6 +105,7 @@ func (adm *AdminClient) RemoveCannedPolicy(policyName string) error {
 	return nil
 }
 
+//Edited by SJLee at 2020-11-10 for ignoring http code
 // AddCannedPolicy - adds a policy for a canned.
 func (adm *AdminClient) AddCannedPolicy(policyName, policy string) error {
 	queryValues := url.Values{}
@@ -124,9 +125,9 @@ func (adm *AdminClient) AddCannedPolicy(policyName, policy string) error {
 		return err
 	}
 
-	if resp.StatusCode != http.StatusOK {
-		return httpRespToErrorResponse(resp)
-	}
+// 	if resp.StatusCode != http.StatusOK {
+// 		return httpRespToErrorResponse(resp)
+// 	}
 
 	return nil
 }
